@@ -30,11 +30,12 @@ class CovModel:
 
 def one_dim_dist(cov_model, eta, i):
     N = eta.size
-    #domega = 0.01 / cov_model.length
-    #omega = np.arange(0.01 / cov_model.length, 100 / cov_model.length, domega) + domega / 2
-    M = 30
-    omega, domega = get_log_grid(0.01 / cov_model.length, 1000 / cov_model.length, M)
-    #plt.plot(omega, cov_model.spec_dens(omega), 'g-', linewidth = 1)
+    domega = 0.01 / np.sqrt(cov_model.length)
+    omega = np.arange(0, 100 / cov_model.length, domega) + domega / 2
+    M = omega.size
+    #M = 30
+    #omega, domega = get_log_grid(0.01 / cov_model.length, 1000 / cov_model.length, M)
+    #plt.plot(omega, cov_model.spec_dens(omega), 'go', linewidth = 1)
     #plt.plot(centers, cov_model.spec_dens(centers), 'bo-')
     #plt.grid(True)
     #plt.show()
